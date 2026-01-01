@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_posted }}</small>
+            </div>
+            <h2>{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+    <div class="btn-group" role="group">
+        <a class="btn btn-primary" href="{% url 'post-update' object.pk %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'post-delete' object.pk %}">Delete</a>
+    </div>
+{% endblock content %}
